@@ -1,11 +1,11 @@
 class Solution:
     def reverse(self, x: int) -> int:
-        return 14
+        r = int(str(abs(x))[::-1])
 
-
-
-# ----- run locally ---------
-if __name__ == "__main__":
-    s = Solution()
-    result = s.reverse(10)
-    print(result)
+        if r.bit_length() < 32:
+            if x < 0:
+                return -r
+            else:
+                return r
+        else:
+            return 0
